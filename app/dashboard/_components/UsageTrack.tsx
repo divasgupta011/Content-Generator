@@ -31,15 +31,7 @@ function UsageTrack() {
     if (user) {
       getData();
     }
-  }, [user]);
-
-  useEffect(() => {
-    if (user) {
-      getData();
-    }
-  }, [updateCreditUsage && user]);
-
-
+  }, [user,updateCreditUsage]);
   
 
   const getData = async () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function billing() {
+function Billing() {
   return (
     <div className='flex items-center justify-center h-screen'>
   <div className='border shadow-lg rounded-md p-6 text-center' style={{width: '300px'}}>
@@ -11,4 +11,4 @@ function billing() {
   )
 }
 
-export default billing
+export default Billing

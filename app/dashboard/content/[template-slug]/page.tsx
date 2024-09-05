@@ -24,7 +24,7 @@ interface PROPS{
 }
 
 
-function createNewContent(props:PROPS) {
+function CreateNewContent(props:PROPS) {
 
   const selectedTemplate:TEMPLATE|undefined=Templates?.find((item)=>item.slug==props.params['template-slug'])
 
@@ -86,4 +86,4 @@ function createNewContent(props:PROPS) {
   )
 }
 
-export default createNewContent
+export default CreateNewContent

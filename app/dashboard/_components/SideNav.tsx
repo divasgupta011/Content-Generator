@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
 import UsageTrack from './UsageTrack'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function SideNav() {
 
@@ -39,7 +40,7 @@ function SideNav() {
   return (
     <div className='h-screen p-5 border shadow-lg'>
         <div className='flex justify-center '>
-        <img src='./logoipsum-332.svg' alt='logo' width={100} height={100}></img>
+        <Image src='./logoipsum-332.svg' alt='logo' width={100} height={100}/>
         </div>
         <div className='mt-10'>
             {menuList.map((menu)=>(
