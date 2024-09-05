@@ -9,7 +9,7 @@ import { geminiOutput } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import { useRouter } from 'next/router';
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 
 type HistoryItem = {
   id: number;
@@ -34,20 +34,26 @@ function UsageTrack() {
   }, [user,updateCreditUsage]);
   
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     if (user?.primaryEmailAddress?.emailAddress) {
       const result = await db.select().from(geminiOutput).where(eq(geminiOutput.createdBy, user.primaryEmailAddress.emailAddress));
       getTotalUsage(result as HistoryItem[]);
     }
-  }
+  }, [user?.primaryEmailAddress?.emailAddress]);
 
-  const getTotalUsage = (result: HistoryItem[]) => {
+  const getTotalUsage = useCallback((result: HistoryItem[]) => {
     let total = 0;
     result.forEach(element => {
       total += element.aiResponse?.length || 0;
     });
     setTotalUsage(total);
-  }
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      getData();
+    }
+  }, [user, updateCreditUsage, getData]);
 
   const usagePercentage = (totalUsage / maxCredits) * 100;
 

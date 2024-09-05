@@ -33,8 +33,7 @@ function SideNav() {
 
     const path=usePathname();
     useEffect(()=>{
-        console.log(path);
-    })
+    },[path])
 
 
   return (
@@ -44,7 +43,7 @@ function SideNav() {
         </div>
         <div className='mt-10'>
             {menuList.map((menu)=>(
-                <Link href={menu.path} className={`flex p-3 mb-2 gap-2 hover:bg-black hover:text-white cursor-pointer items-center ${path==menu.path && 'bg-black text-white'}`}>
+                <Link key={menu.name} href={menu.path} className={`flex p-3 mb-2 gap-2 hover:bg-black hover:text-white cursor-pointer items-center ${path==menu.path && 'bg-black text-white'}`}>
                     <menu.icon className='h-7 w-7'/>
                     <h2 className='text-xl'>{menu.name}</h2>
                 </Link>

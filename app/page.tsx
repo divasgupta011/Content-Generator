@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <header className="flex p-5 border shadow-md fixed w-screen justify-between items-center ">
-        <img src='./logoipsum-332.svg' alt='logo' width={100} height={100}></img>
+        <Image src='./logoipsum-332.svg' alt='logo' width={100} height={100}/>
         <nav className="flex items-center gap-7 m-5">
             <SignedOut>
             <Button className="text-lg"><SignInButton /></Button>
