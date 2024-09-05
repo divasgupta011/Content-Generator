@@ -6,7 +6,7 @@ import Header from './_components/Header';
 import { UpdateCreditUsageContext } from '../(context)/UpdateCreditUsageContext';
 
 
-function layout({
+function Layout({
     children,
   }: Readonly<{
     children: React.ReactNode;
@@ -34,4 +34,4 @@ function layout({
   )
 }
 
-export default layout
+export default Layout
